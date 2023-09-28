@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Page d'accueil</title>
+</head>
+<body>
+<h1>Page d'accueil</h1>
+
+
+<form th:action="@{/accueil}" th:object=${personne} method="post">
+  <label for="prenomInput">Prenom : </label>
+  <input type="text" th:field="*{prenom}" id="prenomInput" /> 
+  <label for="ageInput">Age : </label>
+  <input type="number" th:field="*{age}" id="ageInput" /> 
+  <button type="submit">Dire Hello</button>
+</form>
+
+<h1>Liste des personnes :</h1>
+
+	<table>
+		<tr th:each="pers: ${personnes}">
+			<td th:text="${pers.prenom}" />
+			<td th:text="${pers.age}" />
+		</tr>
+	</table>
+
+</body>
+</html>

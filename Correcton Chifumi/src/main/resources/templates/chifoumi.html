@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ChiFouMi</title>
+</head>
+<body>
+<h1>Jouez !</h1>
+
+<a href="/jouer?choix=1"><img th:src="@{'/images/chi.png'}"></a>
+<a href="/jouer?choix=2"><img th:src="@{'/images/fou.png'}"></a>
+<a href="/jouer?choix=3"><img th:src="@{'/images/mi.png'}"></a>
+
+<h1>Jouez !</h1>
+<form action="/jouer" method="post">
+	<input type="radio" name="choix" value=1>
+	<img th:src="@{'/images/chi.png'}">
+	<br>
+	<input type="radio" name="choix" value=2>
+	<img th:src="@{'/images/fou.png'}">
+	<br>
+	<input type="radio" name="choix" value=3>
+	<img th:src="@{'/images/mi.png'}">
+	<br>
+	<button>Jouer</button>
+</form>
+
+</body>
+</html>

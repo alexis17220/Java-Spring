@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Page d'accueil</title>
+<style>
+  form {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 20px;
+  }
+  label { text-align: center;}
+  .theader { text-align: center; font-weight:bold; font-size: larger;}
+</style>
+</head>
+<body>
+<h1>Page d'accueil</h1>
+
+
+<form th:action="@{/accueil}" th:object=${personne} method="post">
+  <label for="prenomInput">Prenom : </label>
+  <input type="text" th:field="*{prenom}" id="prenomInput" /> 
+  <label for="ageInput">Age : </label>
+  <input type="number" th:field="*{age}" id="ageInput" />
+  <label for="metierInput" >Métier</label>
+  <select class="form-select col-3"  th:field="*{metier}" required>
+	  	<option th:each="metier: ${@metiers}" 
+	  	th:value="${metier.id}" th:text="${metier.libelle}"></option>
+  </select>	 
+  <button type="submit">Dire Hello</button>
+</form>
+
+<h1>Liste des personnes :</h1>
+	<table>
+		<tr class="theader"><td>Nom</td><td>Age</td><td>Metier</td></tr>
+		<tr th:each="pers: ${personnes}">
+			<td th:text="${pers.prenom}" />
+			<td th:text="${pers.age}" />
+	        <td th:text="${pers.metier.libelle}"></td>		 				
+		</tr>
+	</table>
+</body>
+</html>

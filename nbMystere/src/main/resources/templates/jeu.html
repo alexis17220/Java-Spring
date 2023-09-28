@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Jeu du nombre mystère</title>
+<link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap-theme.min.css}">
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" th:href="@{/css/commun.css}">
+<link rel="icon" th:href="@{/img/favicon.ico}" />
+
+</head>
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container"></div>
+	</nav>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Nombre Mystère</h1>
+		</div>
+
+		<div th:if="${partie.resultat==partie.GAGNE }">
+			<h2>Vous avez gagné !</h2>
+		</div>
+		<div th:if="${partie.resultat==partie.PERDU }">
+			<h2>Vous avez perdu !</h2>
+			<h3>Le nombre mystère était : <span th:text="${partie.nbMystere}">25</span></h3>
+		</div>
+		<div th:if="${partie.resultat==partie.MOINS }">
+			<h2>C'est moins !</h2>
+			<h3>Il vous reste : <span th:text="${partie.nbTentativesRestantes}"></span> tentative(s)</h3>
+		</div>
+		<div th:if="${partie.resultat==partie.PLUS }">
+			<h2>C'est plus !</h2>
+			<h3>Il vous reste : <span th:text="${partie.nbTentativesRestantes}"></span> tentative(s)</h3>
+		</div>
+		<div>
+			<h2>Essayez de découvrir le nombre mystère entre 1 et 50 :</h2>
+			<form id="formArreter" action="/arreter" th:action="@{/arreter}" method="post">
+			</form>
+			<form action="/jouer" th:action="@{/jouer}" method="post">
+				<div class="row">
+					<label for="nbMystere">Votre proposition : </label> <input
+						type="number" name="proposition" step="1" min="1" max="50" autofocus required />
+				</div>
+				<div class="row">
+					<button type="submit" name="action" value="proposer" class="col-3">JOUER</button>
+					<button type="submit" name="action" value="arreter" form="formArreter"
+						class="offset-1 col-3">ARRETER LE JEU</button>
+				</div>
+			</form>
+			
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container">
+			<ul class="nav navbar-nav  navbar-foot">
+				<li class="pull-left"><a>© 2021 Copyright</a></li>
+				<li class="pull-right"><a >Formation Eni</a></li>		
+			</ul>
+		</div>
+	</nav>	
+</html>

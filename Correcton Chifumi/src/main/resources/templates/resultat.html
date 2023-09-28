@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ChiFouMi</title>
+</head>
+<body>
+<h1>Résultat</h1>
+
+<h2 th:if="${partie.resultat==1}">Egalité !</h2>
+<h2 th:if="${partie.resultat==2}">Vous avez gagné !</h2>
+<h2 th:if="${partie.resultat==3}">Vous avez perdu.</h2>
+
+<h3>Choix du joueur</h3>
+<img alt="" th:if="${partie.choixJoueur==1}" th:src="@{'images/chi.png'}" />
+<img alt="" th:if="${partie.choixJoueur==2}" th:src="@{'images/fou.png'}" />
+<img alt="" th:if="${partie.choixJoueur==3}" th:src="@{'images/mi.png'}" />
+
+<h3>Choix de l'ordinateur</h3>
+<img alt="" th:if="${partie.choixOrdinateur==1}" th:src="@{'images/chi.png'}" />
+<img alt="" th:if="${partie.choixOrdinateur==2}" th:src="@{'images/fou.png'}" />
+<img alt="" th:if="${partie.choixOrdinateur==3}" th:src="@{'images/mi.png'}" />
+
+
+<a href="/chifoumi">Rejouer</a>
+
+
+</body>
+</html>

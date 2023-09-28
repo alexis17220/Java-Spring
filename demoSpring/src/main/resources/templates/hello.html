@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>debut Spring</title>
+</head>
+<body>
+<h1>Hello !!!</h1>
+
+<a href="/bonjour?prenom=Jeanne" >Dire bonjour en get</a>
+<br><a href="/bonjour/12/Jeanne" >Dire bonjour en get avec variable en path</a>
+<br>
+<form method="post" action="/bonjour">
+    <label for="prenom">Prénom *</label>
+    <input id="prenom" type="text" name="prenom"/>
+    <button>Dire Bonjour</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page d'accueil</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+
+</style>
+</head>
+<body>
+
+<h1>Liste des personnes :</h1>
+	<table>
+		<tr class="theader">
+			<td>Nom</td>
+			<td>Age</td>
+			<td>Email</td>
+			<td>Code postal</td>
+			<td>Metier</td></tr>
+		<tr th:each="pers: ${personnes}">
+			<td th:text="${pers.prenom}" />
+			<td th:text="${pers.age}" />
+			<td th:text="${pers.email}" />
+			<td th:text="${pers.codePostal}" />
+	        <td th:text="${pers.metier.libelle}"></td>		 				
+		</tr>
+	</table>
+	<a th:href="@{/accueil}">Retour vers le formulaire</a>
+
+
+
+</body>
+</html>

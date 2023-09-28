@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Demo web</title>
+</head>
+<body>
+
+<h1 th:text="${testModelAttribut}"></h1>
+
+<h1>Liste des personnes :</h1>
+
+	<table>
+		<tr th:each="pers: ${personnes}">
+			<td th:text="${pers.prenom}" />
+			<td th:text="${pers.age}" />
+		</tr>
+	</table>
+	
+	<a th:href=@{/dire/accueil}>Vers l'accueil</a>
+
+</body>
+</html>
